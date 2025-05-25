@@ -14,7 +14,7 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-   base: '/your-repo-name/',
+   base: '/tech/',
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
