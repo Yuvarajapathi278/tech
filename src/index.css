@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+
+    --radius: 0.75rem;
+  }
+
+  .light-mode {
+    --background: 0 0% 100%; /* Pure white background */
+    --foreground: 0 0% 5%; /* Much darker text for better contrast */
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 5%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 5%;
+
+    --primary: 0 0% 5%; /* Darker primary text */
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 5%;
+
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 30%; /* Brighter muted text */
+
+    --accent: 0 0% 96%;
+    --accent-foreground: 0 0% 5%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 0 0% 5%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-bold;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-gradient-glass backdrop-blur-md border border-white/10 shadow-lg;
+  }
+  
+  .light-mode .glass-card {
+    @apply border-black/10;
+  }
+  
+  .neon-border {
+    @apply relative;
+  }
+  
+  .neon-border::after {
+    content: '';
+    @apply absolute inset-0 rounded-lg p-[1px] bg-gradient-blue-purple opacity-0 transition-opacity duration-300;
+    pointer-events: none;
+  }
+  
+  .neon-border:hover::after {
+    @apply opacity-100;
+  }
+  
+  .neon-glow {
+    @apply relative;
+    text-shadow: 0 0 10px currentColor, 0 0 20px currentColor;
+  }
+
+  .light-mode .neon-glow {
+    text-shadow: 0 0 5px currentColor;
+  }
+
+  .live-glow {
+    position: relative;
+    animation: liveGlow 3s ease-in-out infinite;
+  }
+
+  @keyframes liveGlow {
+    0%, 100% {
+      text-shadow: 
+        0 0 5px #FF1493,
+        0 0 10px #FF1493,
+        0 0 15px #FF1493,
+        0 0 20px #FF1493;
+    }
+    25% {
+      text-shadow: 
+        0 0 5px #9B87F5,
+        0 0 10px #9B87F5,
+        0 0 15px #9B87F5,
+        0 0 20px #9B87F5;
+    }
+    50% {
+      text-shadow: 
+        0 0 5px #39FF14,
+        0 0 10px #39FF14,
+        0 0 15px #39FF14,
+        0 0 20px #39FF14;
+    }
+    75% {
+      text-shadow: 
+        0 0 5px #FF7F50,
+        0 0 10px #FF7F50,
+        0 0 15px #FF7F50,
+        0 0 20px #FF7F50;
+    }
+  }
+
+  .light-mode .live-glow {
+    animation: liveGlowLight 3s ease-in-out infinite;
+  }
+
+  @keyframes liveGlowLight {
+    0%, 100% {
+      text-shadow: 
+        0 0 3px #FF1493,
+        0 0 6px #FF1493,
+        0 0 9px #FF1493;
+    }
+    25% {
+      text-shadow: 
+        0 0 3px #9B87F5,
+        0 0 6px #9B87F5,
+        0 0 9px #9B87F5;
+    }
+    50% {
+      text-shadow: 
+        0 0 3px #39FF14,
+        0 0 6px #39FF14,
+        0 0 9px #39FF14;
+    }
+    75% {
+      text-shadow: 
+        0 0 3px #FF7F50,
+        0 0 6px #FF7F50,
+        0 0 9px #FF7F50;
+    }
+  }
+  
+  .neon-text {
+    @apply bg-clip-text text-transparent;
+  }
+}
+
+@layer utilities {
+  .gradient-text {
+    @apply bg-gradient-blue-purple bg-clip-text text-transparent;
+  }
+
+  .gradient-text-alt {
+    @apply bg-gradient-pink-orange bg-clip-text text-transparent;
+  }
+
+  .animate-float-slow {
+    animation: float 10s ease-in-out infinite;
+  }
+}
