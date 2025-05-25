@@ -1,0 +1,45 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Clean Install Dependencies
+        run: |
+          rm -rf node_modules
+          rm -rf dist
+          npm install
+
+      - name: Build
+        run: |
+          npm run build
+          echo "Build contents:"
+          ls -la dist/
+          echo "Assets contents:"
+          ls -la dist/assets/
+
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: dist
+          branch: gh-pages
+          clean: true
+          clean-exclude: |
+            .git
+            .github 
