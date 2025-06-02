@@ -15,9 +15,6 @@
       "dest": "/index.html"
     }
   ],
-  "buildCommand": "npm install && npm run build",
-  "outputDirectory": "dist",
-  "framework": "vite",
   "headers": [
     {
       "source": "/(.*)",
@@ -38,4 +35,4 @@
       ]
     }
   ]
-} 
+}
