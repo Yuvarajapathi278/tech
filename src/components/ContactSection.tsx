@@ -103,8 +103,7 @@ export function ContactSection() {
                   </div>
                   <div>
                     <h5 className="text-sm text-muted-foreground mb-1">Email Us</h5>
-                    <p className="font-medium">info@company.com</p>
-                    <p className="font-medium">support@company.com</p>
+                    <p className="font-medium">dr.devuc@gmail.com</p>
                   </div>
                 </div>
                 
@@ -114,8 +113,7 @@ export function ContactSection() {
                   </div>
                   <div>
                     <h5 className="text-sm text-muted-foreground mb-1">Call Us</h5>
-                    <p className="font-medium">+1 (555) 123-4567</p>
-                    <p className="font-medium">+1 (555) 987-6543</p>
+                    <p className="font-medium">9342832456</p>
                   </div>
                 </div>
                 
@@ -125,8 +123,8 @@ export function ContactSection() {
                   </div>
                   <div>
                     <h5 className="text-sm text-muted-foreground mb-1">Visit Us</h5>
-                    <p className="font-medium">123 Tech Lane</p>
-                    <p className="font-medium">Digital City, DC 10101</p>
+                    <p className="font-medium">Damodara Smart Tech</p>
+                    <p className="font-medium">Thalambur SIPCOT Road, Siruseri, Chennai-603103</p>
                   </div>
                 </div>
               </div>

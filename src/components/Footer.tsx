@@ -88,15 +88,15 @@ export function Footer() {
             <ul className="space-y-3">
               <li className="flex items-center gap-2 text-muted-foreground">
                 <Mail size={16} />
-                <span>info@damodarasmartech.com</span>
+                <span>dr.devuc@gmail.com</span>
               </li>
               <li className="flex items-center gap-2 text-muted-foreground">
                 <Phone size={16} />
-                <span>+1 (555) 123-4567</span>
+                <span>9342832456</span>
               </li>
               <li className="flex items-center gap-2 text-muted-foreground">
                 <MapPin size={16} />
-                <span>123 Tech Lane, Digital City</span>
+                <span>Damodara Smart Tech, Thalambur SIPCOT Road, Siruseri, Chennai-603103</span>
               </li>
             </ul>
           </div>
