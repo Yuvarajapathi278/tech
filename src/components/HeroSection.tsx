@@ -47,21 +47,6 @@ export function HeroSection() {
                 Learn More
               </Button>
             </div>
-            
-            <div className="flex items-center gap-8 pt-4">
-              <div>
-                <p className="text-3xl font-bold gradient-text">98%</p>
-                <p className="text-sm text-muted-foreground">Client Satisfaction</p>
-              </div>
-              <div>
-                <p className="text-3xl font-bold gradient-text-alt">250+</p>
-                <p className="text-sm text-muted-foreground">Projects Completed</p>
-              </div>
-              <div>
-                <p className="text-3xl font-bold gradient-text">15+</p>
-                <p className="text-sm text-muted-foreground">Years Experience</p>
-              </div>
-            </div>
           </div>
           
           <div className="relative animate-fade-in animate-float-slow" style={{ animationDelay: "0.2s" }}>
