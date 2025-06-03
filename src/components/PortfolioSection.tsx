@@ -68,15 +68,13 @@ export function PortfolioSection() {
         {/* Category Filter */}
         <div className="flex flex-wrap justify-center gap-3 mb-12">
           {categories.map((category) => (
-            <Button
+            <button
               key={category}
-              variant={filter === category ? "default" : "outline"}
-              size="sm"
-              className={filter === category ? "bg-gradient-blue-purple" : "border-white/20"}
+              className={`px-4 py-2 rounded ${filter === category ? "bg-gradient-blue-purple text-white" : "border border-white/20 text-foreground"}`}
               onClick={() => setFilter(category)}
             >
               {category === "all" ? "All Projects" : category}
-            </Button>
+            </button>
           ))}
         </div>
         
@@ -98,13 +96,7 @@ export function PortfolioSection() {
                     {project.category}
                   </span>
                   <h4 className="text-xl font-bold mb-2">{project.title}</h4>
-                  <p className="text-muted-foreground mb-4">{project.description}</p>
-                  <a 
-                    href="#" 
-                    className="inline-flex items-center text-sm text-neon-purple hover:text-neon-blue transition-colors"
-                  >
-                    View Project <ArrowRight size={16} className="ml-2" />
-                  </a>
+                  <p className="text-muted-foreground mb-0">{project.description}</p>
                 </div>
               </div>
             </div>

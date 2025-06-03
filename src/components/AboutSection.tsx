@@ -51,11 +51,6 @@ export function AboutSection() {
               </div>
               
               <div className="pt-4">
-                <Button 
-                  className="bg-gradient-pink-orange hover:opacity-90 transition-opacity"
-                >
-                  Learn More About Us
-                </Button>
               </div>
             </div>
           </div>
