@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -32,7 +31,20 @@ export function ContactSection() {
             <div className="glass-card rounded-xl p-8">
               <h4 className="text-xl font-semibold mb-6">Send us a message</h4>
               
-              <form className="space-y-6">
+              <form 
+                action="https://formsubmit.co/damodarasmarttech@gmail.com" 
+                method="POST"
+                className="space-y-6"
+              >
+                {/* Honeypot */}
+                <input type="text" name="_honey" style={{ display: 'none' }} />
+                
+                {/* Disable Captcha */}
+                <input type="hidden" name="_captcha" value="false" />
+                
+                {/* Success Page */}
+                <input type="hidden" name="_next" value="https://damodarasmarttech.com/thank-you" />
+                
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium mb-2">
@@ -40,8 +52,10 @@ export function ContactSection() {
                     </label>
                     <Input 
                       id="name"
+                      name="name"
                       placeholder="John Doe"
                       className="bg-secondary/50 border-white/10"
+                      required
                     />
                   </div>
                   <div>
@@ -50,9 +64,11 @@ export function ContactSection() {
                     </label>
                     <Input 
                       id="email"
+                      name="email"
                       type="email"
                       placeholder="john@example.com"
                       className="bg-secondary/50 border-white/10"
+                      required
                     />
                   </div>
                 </div>
@@ -63,8 +79,10 @@ export function ContactSection() {
                   </label>
                   <Input 
                     id="subject"
+                    name="subject"
                     placeholder="How can we help you?"
                     className="bg-secondary/50 border-white/10"
+                    required
                   />
                 </div>
                 
@@ -74,9 +92,11 @@ export function ContactSection() {
                   </label>
                   <Textarea 
                     id="message"
+                    name="message"
                     placeholder="Tell us about your project..."
                     rows={5}
                     className="bg-secondary/50 border-white/10 resize-none"
+                    required
                   />
                 </div>
                 
@@ -103,7 +123,7 @@ export function ContactSection() {
                   </div>
                   <div>
                     <h5 className="text-sm text-muted-foreground mb-1">Email Us</h5>
-                    <p className="font-medium">dr.devuc@gmail.com</p>
+                    <p className="font-medium">damodarasmarttech@gmail.com</p>
                   </div>
                 </div>
                 
