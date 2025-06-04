@@ -10,10 +10,11 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  base: '/',
+  base: './',
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
+    sourcemap: true,
     rollupOptions: {
       output: {
         manualChunks: {
@@ -22,4 +23,8 @@ export default defineConfig({
       },
     },
   },
+  server: {
+    port: 3000,
+    host: true
+  }
 });
