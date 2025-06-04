@@ -1,11 +1,48 @@
-import React from "react";
+import React, { useState } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Briefcase, Users, Send } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
 
 export function CareersSection() {
+  const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch("https://formsubmit.co/el/activate/damodarasmarttech@gmail.com", {
+        method: "POST",
+        body: formData,
+      });
+
+      if (response.ok) {
+        toast({
+          title: "Profile Submitted!",
+          description: "Thank you for your interest. We'll keep your profile on file for future opportunities.",
+        });
+        form.reset();
+      } else {
+        throw new Error("Failed to submit profile");
+      }
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Failed to submit profile. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <section id="careers" className="py-20 relative">
       {/* Background Effects */}
@@ -40,8 +77,7 @@ export function CareersSection() {
               </CardHeader>
               <CardContent>
                 <form 
-                  action="https://formsubmit.co/damodarasmarttech@gmail.com" 
-                  method="POST"
+                  onSubmit={handleSubmit}
                   className="space-y-4"
                 >
                   {/* Honeypot */}
@@ -49,9 +85,6 @@ export function CareersSection() {
                   
                   {/* Disable Captcha */}
                   <input type="hidden" name="_captcha" value="false" />
-                  
-                  {/* Success Page */}
-                  <input type="hidden" name="_next" value="https://damodarasmarttech.com/thank-you" />
                   
                   {/* Subject for Career Applications */}
                   <input type="hidden" name="_subject" value="New Career Application" />
@@ -113,9 +146,10 @@ export function CareersSection() {
                   <Button 
                     type="submit" 
                     className="w-full bg-gradient-blue-purple hover:opacity-90"
+                    disabled={isSubmitting}
                   >
+                    {isSubmitting ? "Submitting..." : "Submit Profile"}
                     <Send size={16} className="mr-2" />
-                    Submit Profile
                   </Button>
                 </form>
               </CardContent>

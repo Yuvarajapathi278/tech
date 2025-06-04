@@ -1,10 +1,47 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
 
 export function ContactSection() {
+  const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch("https://formsubmit.co/el/activate/damodarasmarttech@gmail.com", {
+        method: "POST",
+        body: formData,
+      });
+
+      if (response.ok) {
+        toast({
+          title: "Message Sent!",
+          description: "Thank you for contacting us. We'll get back to you soon.",
+        });
+        form.reset();
+      } else {
+        throw new Error("Failed to send message");
+      }
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Failed to send message. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <section id="contact" className="py-20 relative">
       {/* Background Effects */}
@@ -32,8 +69,7 @@ export function ContactSection() {
               <h4 className="text-xl font-semibold mb-6">Send us a message</h4>
               
               <form 
-                action="https://formsubmit.co/damodarasmarttech@gmail.com" 
-                method="POST"
+                onSubmit={handleSubmit}
                 className="space-y-6"
               >
                 {/* Honeypot */}
@@ -42,8 +78,8 @@ export function ContactSection() {
                 {/* Disable Captcha */}
                 <input type="hidden" name="_captcha" value="false" />
                 
-                {/* Success Page */}
-                <input type="hidden" name="_next" value="https://damodarasmarttech.com/thank-you" />
+                {/* Subject */}
+                <input type="hidden" name="_subject" value="New Contact Form Submission" />
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
@@ -103,8 +139,9 @@ export function ContactSection() {
                 <Button 
                   type="submit" 
                   className="w-full bg-gradient-blue-purple hover:opacity-90 transition-opacity"
+                  disabled={isSubmitting}
                 >
-                  Send Message
+                  {isSubmitting ? "Sending..." : "Send Message"}
                   <Send size={16} className="ml-2" />
                 </Button>
               </form>
