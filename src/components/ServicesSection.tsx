@@ -1,4 +1,3 @@
-
 import React from "react";
 import { ArrowRight } from "lucide-react";
 
@@ -18,10 +17,6 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, icon, col
       
       <h3 className="text-xl font-semibold mb-3">{title}</h3>
       <p className="text-muted-foreground mb-6">{description}</p>
-      
-      <a href="#" className="inline-flex items-center text-sm group-hover:text-neon-blue transition-colors">
-        Learn more <ArrowRight size={16} className="ml-2" />
-      </a>
     </div>
   );
 };
@@ -32,25 +27,25 @@ export function ServicesSection() {
       title: "Web Development",
       description: "Custom-built websites and web applications tailored to your unique business requirements.",
       icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-neon-blue"><path d="m18 16 4-4-4-4"></path><path d="m6 8-4 4 4 4"></path><path d="m14.5 4-5 16"></path></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-[hsl(var(--accent-blue))]"><path d="m18 16 4-4-4-4"></path><path d="m6 8-4 4 4 4"></path><path d="m14.5 4-5 16"></path></svg>
       ),
-      color: "bg-gradient-to-br from-neon-blue/30 to-neon-purple/30"
+      color: "bg-[hsl(var(--soft-blue))]"
     },
     {
       title: "UI/UX Design",
       description: "Beautiful, intuitive interfaces that enhance user engagement and deliver seamless experiences.",
       icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-neon-purple"><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path><line x1="9" x2="9.01" y1="9" y2="9"></line><line x1="15" x2="15.01" y1="9" y2="9"></line></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-[hsl(var(--accent-purple))]"><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path><line x1="9" x2="9.01" y1="9" y2="9"></line><line x1="15" x2="15.01" y1="9" y2="9"></line></svg>
       ),
-      color: "bg-gradient-to-br from-neon-purple/30 to-neon-pink/30"
+      color: "bg-[hsl(var(--lavender))]"
     },
     {
       title: "Mobile App Development",
       description: "Native and cross-platform mobile applications with cutting-edge features and functionality.",
       icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-neon-pink"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"></rect><path d="M12 18h.01"></path></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-[hsl(var(--accent-green))]"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"></rect><path d="M12 18h.01"></path></svg>
       ),
-      color: "bg-gradient-to-br from-neon-pink/30 to-neon-orange/30"
+      color: "bg-[hsl(var(--mint))]"
     },
     {
       title: "Digital Marketing",
@@ -81,14 +76,10 @@ export function ServicesSection() {
   return (
     <section id="services" className="py-20">
       <div className="container">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-sm uppercase tracking-wider text-neon-pink mb-3">Our Services</h2>
-          <h3 className="text-3xl md:text-4xl font-bold mb-6">
-            Comprehensive <span className="gradient-text-alt">Digital Solutions</span>
-          </h3>
+        <div className="text-center">
+          <h3 className="text-3xl md:text-4xl font-bold mb-6">Our Services</h3>
           <p className="text-muted-foreground">
-            We offer a wide range of services to help your business thrive in the digital world,
-            from web development to digital marketing.
+            We offer a wide range of services to help your business grow.
           </p>
         </div>
         

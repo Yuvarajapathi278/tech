@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
@@ -58,18 +57,20 @@ export function AboutSection() {
           <div className="order-1 lg:order-2">
             <div className="relative">
               {/* Abstract design */}
-              <div className="aspect-video overflow-hidden glass-card rounded-2xl border border-white/10 shadow-lg">
+              <div className="aspect-video overflow-hidden glass-card rounded-2xl border border-white/10 shadow-lg transition-all duration-300">
                 <div className="absolute inset-0 bg-gradient-to-br from-neon-purple/20 to-neon-blue/20"></div>
                 <div className="p-8 relative z-10 h-full flex flex-col">
-                  <h4 className="text-2xl font-bold mb-4 gradient-text">Our Mission</h4>
+                  <h4 className="text-2xl font-bold mb-4">Our Mission</h4>
                   <p className="mb-6 text-muted-foreground">
-                    "To empower businesses with transformative digital solutions that drive growth, 
-                    enhance efficiency, and deliver exceptional user experiences."
+                    "At Damodara Smart Tech, our mission is to align smartness with service — to humanity and to the planet."
+                  </p>
+                  <p className="mb-6 text-muted-foreground">
+                    We believe technology must serve not just profits, but also people and the planet. This is how true smartness looks.
                   </p>
                   
                   <div className="mt-auto">
                     <div className="flex items-center gap-4">
-                      <div className="w-12 h-12 rounded-full bg-gradient-blue-purple flex items-center justify-center">
+                      <div className="w-12 h-12 rounded-full bg-pastel-gradient flex items-center justify-center">
                         <span className="font-bold">DS</span>
                       </div>
                       <div>
@@ -96,7 +97,7 @@ export function AboutSection() {
             {/* Founder 1 */}
             <div className="glass-card p-6 rounded-xl border border-white/10">
               <div className="flex items-center gap-4 mb-4">
-                <div className="w-16 h-16 rounded-full bg-gradient-blue-purple flex items-center justify-center text-xl font-bold">
+                <div className="w-16 h-16 rounded-full bg-pastel-gradient flex items-center justify-center text-xl font-bold">
                   Dr
                 </div>
                 <div>
@@ -113,7 +114,7 @@ export function AboutSection() {
             {/* Founder 2 */}
             <div className="glass-card p-6 rounded-xl border border-white/10">
               <div className="flex items-center gap-4 mb-4">
-                <div className="w-16 h-16 rounded-full bg-gradient-pink-orange flex items-center justify-center text-xl font-bold">
+                <div className="w-16 h-16 rounded-full bg-pastel-gradient flex items-center justify-center text-xl font-bold">
                   Dr
                 </div>
                 <div>

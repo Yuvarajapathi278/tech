@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 
 interface Quote {
@@ -9,16 +8,16 @@ interface Quote {
 export function RotatingQuotes() {
   const quotes: Quote[] = [
     {
-      text: "Innovation distinguishes between a leader and a follower.",
+      text: "We solve the unsolved. We simplify the complex.",
       author: "Dr. Dev, Co-founder"
     },
     {
-      text: "Technology is best when it brings people together.",
-      author: "Dr. Chirag, Co-founder"
+      text: "Your problem is our blueprint for innovation.",
+      author: "Dr. Dev, Co-founder"
     },
     {
-      text: "The advance of technology is based on making it fit in so that you don't really even notice it, so it's part of everyday life.",
-      author: "DAMODARA SMART TECH"
+      text: "Empowering industries to think, act, and grow smart.",
+      author: "Dr. Dev, Co-founder"
     }
   ];
 

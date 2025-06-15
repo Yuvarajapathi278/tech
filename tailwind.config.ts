@@ -1,7 +1,6 @@
 import type { Config } from "tailwindcss";
-import tailwindcssAnimate from "tailwindcss-animate";
 
-export default {
+const config: Config = {
 	darkMode: ["class"],
 	content: [
 		"./pages/**/*.{ts,tsx}",
@@ -9,7 +8,6 @@ export default {
 		"./app/**/*.{ts,tsx}",
 		"./src/**/*.{ts,tsx}",
 	],
-	prefix: "",
 	theme: {
 		container: {
 			center: true,
@@ -19,6 +17,10 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				sans: ['Inter', 'system-ui', 'sans-serif'],
+				display: ['Space Grotesk', 'system-ui', 'sans-serif'],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -26,40 +28,32 @@ export default {
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
 				primary: {
-					DEFAULT: 'hsl(var(--primary))',
-					foreground: 'hsl(var(--primary-foreground))'
+					DEFAULT: '#FFB6C1', // Pastel Pink
+					foreground: '#4A4A4A',
 				},
 				secondary: {
-					DEFAULT: 'hsl(var(--secondary))',
-					foreground: 'hsl(var(--secondary-foreground))'
+					DEFAULT: '#B5EAD7', // Pastel Mint
+					foreground: '#4A4A4A',
 				},
 				destructive: {
-					DEFAULT: 'hsl(var(--destructive))',
-					foreground: 'hsl(var(--destructive-foreground))'
+					DEFAULT: '#FF9AA2', // Pastel Red
+					foreground: '#4A4A4A',
 				},
 				muted: {
-					DEFAULT: 'hsl(var(--muted))',
-					foreground: 'hsl(var(--muted-foreground))'
+					DEFAULT: '#C7CEEA', // Pastel Blue
+					foreground: '#4A4A4A',
 				},
 				accent: {
-					DEFAULT: 'hsl(var(--accent))',
-					foreground: 'hsl(var(--accent-foreground))'
+					DEFAULT: '#E2F0CB', // Pastel Green
+					foreground: '#4A4A4A',
 				},
 				popover: {
-					DEFAULT: 'hsl(var(--popover))',
-					foreground: 'hsl(var(--popover-foreground))'
+					DEFAULT: '#FFFFFF',
+					foreground: '#4A4A4A',
 				},
 				card: {
-					DEFAULT: 'hsl(var(--card))',
-					foreground: 'hsl(var(--card-foreground))'
-				},
-				// Neon colors
-				neon: {
-					blue: "#00FFFF",
-					purple: "#9B87F5",
-					pink: "#FF1493",
-					orange: "#FF7F50",
-					green: "#39FF14",
+					DEFAULT: '#FFFFFF',
+					foreground: '#4A4A4A',
 				},
 			},
 			borderRadius: {
@@ -76,49 +70,14 @@ export default {
 					from: { height: 'var(--radix-accordion-content-height)' },
 					to: { height: '0' }
 				},
-				'fade-in': {
-					'0%': { opacity: '0', transform: 'translateY(10px)' },
-					'100%': { opacity: '1', transform: 'translateY(0)' }
-				},
-				'fade-out': {
-					'0%': { opacity: '1', transform: 'translateY(0)' },
-					'100%': { opacity: '0', transform: 'translateY(10px)' }
-				},
-				'glow': {
-					'0%, 100%': { filter: 'brightness(1)' },
-					'50%': { filter: 'brightness(1.2)' }
-				},
-				'float': {
-					'0%, 100%': { transform: 'translateY(0)' },
-					'50%': { transform: 'translateY(-10px)' }
-				},
-				'gradient-shift': {
-					'0%': { backgroundPosition: '0% 50%' },
-					'50%': { backgroundPosition: '100% 50%' },
-					'100%': { backgroundPosition: '0% 50%' }
-				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
-				'fade-in': 'fade-in 0.5s ease-out',
-				'fade-out': 'fade-out 0.5s ease-out',
-				'glow': 'glow 2s ease-in-out infinite',
-				'float': 'float 6s ease-in-out infinite',
-				'gradient-shift': 'gradient-shift 4s ease-in-out infinite'
-			},
-			backgroundImage: {
-				'hero-pattern': 'linear-gradient(45deg, rgba(0, 255, 255, 0.15), rgba(155, 135, 245, 0.15))',
-				'gradient-blue-purple': 'linear-gradient(45deg, #00FFFF, #9B87F5)',
-				'gradient-pink-orange': 'linear-gradient(45deg, #FF1493, #FF7F50)',
-				'gradient-radial': 'radial-gradient(circle, var(--tw-gradient-stops))',
-				'gradient-glass': 'linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05))'
-			},
-			fontFamily: {
-				'sans': ['Inter', 'ui-sans-serif', 'system-ui'],
-				'display': ['Space Grotesk', 'ui-sans-serif', 'system-ui'],
 			},
 		},
 	},
-	plugins: [tailwindcssAnimate],
+	plugins: [require("tailwindcss-animate")],
 } satisfies Config;
+
+export default config;

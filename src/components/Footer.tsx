@@ -3,13 +3,25 @@ import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin, Instagram, Linkedin, Twitter } from "lucide-react";
 
 export function Footer() {
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const headerHeight = 80;
+      const elementPosition = element.offsetTop - headerHeight;
+      window.scrollTo({ 
+        top: elementPosition, 
+        behavior: "smooth" 
+      });
+    }
+  };
+
   return (
-    <footer className="border-t border-white/10 bg-gradient-to-b from-background to-secondary/20 pt-16 pb-8">
+    <footer className="border-t border-white/10 bg-gradient-to-b from-background to-secondary/20 pt-16 pb-8 transition-all duration-300">
       <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Company Info */}
           <div>
-            <Link to="/" className="text-2xl font-display font-bold neon-glow text-neon-blue mb-4 inline-block">
+            <Link to="/" className="text-2xl font-bold mb-4 inline-block">
               DAMODARA<span className="text-neon-purple"> SMART TECH</span>
             </Link>
             <p className="text-muted-foreground mt-2 mb-6">
@@ -33,24 +45,36 @@ export function Footer() {
             <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-3">
               <li>
-                <Link to="/about" className="text-muted-foreground hover:text-foreground transition-colors">
+                <button
+                  onClick={() => scrollToSection('about')}
+                  className="text-muted-foreground hover:text-foreground transition-colors"
+                >
                   About Us
-                </Link>
+                </button>
               </li>
               <li>
-                <Link to="/services" className="text-muted-foreground hover:text-foreground transition-colors">
+                <button
+                  onClick={() => scrollToSection('services')}
+                  className="text-muted-foreground hover:text-foreground transition-colors"
+                >
                   Services
-                </Link>
+                </button>
               </li>
               <li>
-                <Link to="/portfolio" className="text-muted-foreground hover:text-foreground transition-colors">
+                <button
+                  onClick={() => scrollToSection('portfolio')}
+                  className="text-muted-foreground hover:text-foreground transition-colors"
+                >
                   Portfolio
-                </Link>
+                </button>
               </li>
               <li>
-                <Link to="/contact" className="text-muted-foreground hover:text-foreground transition-colors">
+                <button
+                  onClick={() => scrollToSection('contact')}
+                  className="text-muted-foreground hover:text-foreground transition-colors"
+                >
                   Contact
-                </Link>
+                </button>
               </li>
             </ul>
           </div>
@@ -60,24 +84,36 @@ export function Footer() {
             <h3 className="text-lg font-semibold mb-4">Services</h3>
             <ul className="space-y-3">
               <li>
-                <Link to="/services" className="text-muted-foreground hover:text-foreground transition-colors">
+                <button
+                  onClick={() => scrollToSection('services')}
+                  className="text-muted-foreground hover:text-foreground transition-colors"
+                >
                   Web Development
-                </Link>
+                </button>
               </li>
               <li>
-                <Link to="/services" className="text-muted-foreground hover:text-foreground transition-colors">
+                <button
+                  onClick={() => scrollToSection('services')}
+                  className="text-muted-foreground hover:text-foreground transition-colors"
+                >
                   UI/UX Design
-                </Link>
+                </button>
               </li>
               <li>
-                <Link to="/services" className="text-muted-foreground hover:text-foreground transition-colors">
+                <button
+                  onClick={() => scrollToSection('services')}
+                  className="text-muted-foreground hover:text-foreground transition-colors"
+                >
                   Digital Marketing
-                </Link>
+                </button>
               </li>
               <li>
-                <Link to="/services" className="text-muted-foreground hover:text-foreground transition-colors">
+                <button
+                  onClick={() => scrollToSection('services')}
+                  className="text-muted-foreground hover:text-foreground transition-colors"
+                >
                   Mobile Apps
-                </Link>
+                </button>
               </li>
             </ul>
           </div>
@@ -107,12 +143,18 @@ export function Footer() {
             &copy; {new Date().getFullYear()} DAMODARA SMART TECH Inc. All rights reserved.
           </p>
           <div className="flex gap-4 mt-4 md:mt-0">
-            <Link to="/privacy" className="text-xs text-muted-foreground hover:text-foreground transition-colors">
+            <button
+              onClick={() => scrollToSection('privacy')}
+              className="text-xs text-muted-foreground hover:text-foreground transition-colors"
+            >
               Privacy Policy
-            </Link>
-            <Link to="/terms" className="text-xs text-muted-foreground hover:text-foreground transition-colors">
+            </button>
+            <button
+              onClick={() => scrollToSection('terms')}
+              className="text-xs text-muted-foreground hover:text-foreground transition-colors"
+            >
               Terms of Service
-            </Link>
+            </button>
           </div>
         </div>
       </div>
